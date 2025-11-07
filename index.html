@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monet Alimentos - Productos Caseros y Naturales</title>
+  <link rel="icon" href="https://i.ibb.co/5WV0XqLr/logo-monet25.png" type="image/png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -30,16 +31,11 @@
     }
 
     .logo-img-large {
-      max-width: 220px;
+      max-width: 280px; /* Logo más grande */
       height: auto;
       margin-bottom: 25px;
-      animation: floatLogo 3s ease-in-out infinite;
+      /* Quitamos la animación flotante */
       filter: drop-shadow(0 4px 8px rgba(200, 150, 120, 0.2));
-    }
-
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
     }
 
     .subtitle {
@@ -71,18 +67,22 @@
       background-clip: text;
     }
 
+    .products-carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255, 248, 245, 0.3);
+      padding: 20px 0;
+    }
+
     .products-carousel {
       display: flex;
       gap: 25px;
-      overflow-x: auto;
-      padding-bottom: 20px;
-      scroll-behavior: smooth;
+      transition: transform 0.8s ease-in-out;
+      padding: 0 20px;
     }
 
-    .products-carousel::-webkit-scrollbar { height: 8px; }
-    .products-carousel::-webkit-scrollbar-track { background: rgba(212, 165, 116, 0.1); border-radius: 10px; }
-    .products-carousel::-webkit-scrollbar-thumb { background: rgba(212, 165, 116, 0.4); border-radius: 10px; }
-    .products-carousel::-webkit-scrollbar-thumb:hover { background: rgba(212, 165, 116, 0.6); }
+    .products-carousel::-webkit-scrollbar { display: none; }
 
     .product-card {
       flex: 0 0 340px;
@@ -174,6 +174,28 @@
       background: linear-gradient(135deg, #b8956a 0%, #a78560 100%);
     }
 
+    /* Indicadores del carousel */
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(212, 165, 116, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: #d4a574;
+      transform: scale(1.2);
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -187,7 +209,7 @@
       .section-title { font-size: 2rem; }
       .product-card { flex: 0 0 300px; }
       header { padding: 30px 20px; }
-      .logo-img-large { max-width: 180px; }
+      .logo-img-large { max-width: 220px; }
       .subtitle { font-size: 1.1rem; }
     }
   </style>
@@ -203,70 +225,76 @@
     <section class="products-section">
       <h2 class="section-title">Nuestros Productos</h2>
       
-      <div class="products-carousel">
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291840?w=400&h=300&fit=crop" alt="Kefir" class="product-image">
-          <h3 class="product-name">Kefir 100% Natural</h3>
-          <p class="product-description">Bebida probiótica elaborada con técnicas tradicionales</p>
-          <ul class="benefits">
-            <li>Fermentación natural controlada</li>
-            <li>Sin aditivos ni conservantes</li>
-            <li>Alto en probióticos vivos</li>
-            <li>100% elaboración casera</li>
-          </ul>
-          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Kefir%20100%25%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
-        </div>
+      <div class="products-carousel-container">
+        <div class="products-carousel" id="productsCarousel">
+          <div class="product-card">
+            <img src="https://i0.wp.com/goota.cl/wp-content/uploads/2021/09/8-1.png?w=1024&ssl=1" alt="Kefir" class="product-image">
+            <h3 class="product-name">Kefir 100% Natural</h3>
+            <p class="product-description">Bebida probiótica elaborada con técnicas tradicionales</p>
+            <ul class="benefits">
+              <li>Fermentación natural controlada</li>
+              <li>Sin aditivos ni conservantes</li>
+              <li>Alto en probióticos vivos</li>
+              <li>100% elaboración casera</li>
+            </ul>
+            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Kefir%20100%25%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
+          </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop" alt="Mayonesa" class="product-image">
-          <h3 class="product-name">Mayonesa Natural</h3>
-          <p class="product-description">Receta casera sin conservantes artificiales</p>
-          <ul class="benefits">
-            <li>Ingredientes 100% naturales</li>
-            <li>Sin conservantes químicos</li>
-            <li>Sabor auténtico y casero</li>
-            <li>Elaboración artesanal</li>
-          </ul>
-          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Mayonesa%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
-        </div>
+          <div class="product-card">
+            <img src="https://www.paulinacocina.net/wp-content/uploads/2020/03/mayonesa-casera.jpg.webp" alt="Mayonesa" class="product-image">
+            <h3 class="product-name">Mayonesa Natural</h3>
+            <p class="product-description">Receta casera sin conservantes artificiales</p>
+            <ul class="benefits">
+              <li>Ingredientes 100% naturales</li>
+              <li>Sin conservantes químicos</li>
+              <li>Sabor auténtico y casero</li>
+              <li>Elaboración artesanal</li>
+            </ul>
+            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Mayonesa%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
+          </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1535720539519-175b763b8d53?w=400&h=300&fit=crop" alt="Yogurt" class="product-image">
-          <h3 class="product-name">Yogurt Griego Cremoso</h3>
-          <p class="product-description">Cremoso, proteínico y lleno de probióticos</p>
-          <ul class="benefits">
-            <li>Textura cremosa y suave</li>
-            <li>Alto contenido de proteína</li>
-            <li>Probióticos vivos activos</li>
-            <li>Sabor natural y delicioso</li>
-          </ul>
-          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Yogurt%20Griego" class="whatsapp-button" target="_blank">Ordenar</a>
-        </div>
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1535720539519-175b763b8d53?w=400&h=300&fit=crop" alt="Yogurt" class="product-image">
+            <h3 class="product-name">Yogurt Griego Cremoso</h3>
+            <p class="product-description">Cremoso, proteínico y lleno de probióticos</p>
+            <ul class="benefits">
+              <li>Textura cremosa y suave</li>
+              <li>Alto contenido de proteína</li>
+              <li>Probióticos vivos activos</li>
+              <li>Sabor natural y delicioso</li>
+            </ul>
+            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Yogurt%20Griego" class="whatsapp-button" target="_blank">Ordenar</a>
+          </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Lemon Pie" class="product-image">
-          <h3 class="product-name">Lemon Pie Casero</h3>
-          <p class="product-description">Postre tradicional con receta premium</p>
-          <ul class="benefits">
-            <li>Receta clásica tradicional</li>
-            <li>Ingredientes frescos seleccionados</li>
-            <li>Sabor intenso a limón natural</li>
-            <li>Elaboración 100% casera</li>
-          </ul>
-          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Lemon%20Pie" class="whatsapp-button" target="_blank">Ordenar</a>
-        </div>
+          <div class="product-card">
+            <img src="https://i0.wp.com/marubotana.tv/wp-content/uploads/2014/07/mini_lemonpie.jpg?fit=736%2C736&ssl=1" alt="Lemon Pie" class="product-image">
+            <h3 class="product-name">Lemon Pie Casero</h3>
+            <p class="product-description">Postre tradicional con receta premium</p>
+            <ul class="benefits">
+              <li>Receta clásica tradicional</li>
+              <li>Ingredientes frescos seleccionados</li>
+              <li>Sabor intenso a limón natural</li>
+              <li>Elaboración 100% casera</li>
+            </ul>
+            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Lemon%20Pie" class="whatsapp-button" target="_blank">Ordenar</a>
+          </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Banana Split" class="product-image">
-          <h3 class="product-name">Banana Split Premium</h3>
-          <p class="product-description">Postre refrescante con frutas frescas</p>
-          <ul class="benefits">
-            <li>Frutas frescas seleccionadas diariamente</li>
-            <li>Crema 100% natural y deliciosa</li>
-            <li>Sin conservantes artificiales</li>
-            <li>Presentación elegante y apetitosa</li>
-          </ul>
-          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Banana%20Split%20Premium" class="whatsapp-button" target="_blank">Ordenar</a>
+          <div class="product-card">
+            <img src="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-banana-split.jpg.webp" alt="Banana Split" class="product-image">
+            <h3 class="product-name">Banana Split Premium</h3>
+            <p class="product-description">Postre refrescante con frutas frescas</p>
+            <ul class="benefits">
+              <li>Frutas frescas seleccionadas diariamente</li>
+              <li>Crema 100% natural y deliciosa</li>
+              <li>Sin conservantes artificiales</li>
+              <li>Presentación elegante y apetitosa</li>
+            </ul>
+            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Banana%20Split%20Premium" class="whatsapp-button" target="_blank">Ordenar</a>
+          </div>
+        </div>
+        
+        <div class="carousel-indicators" id="carouselIndicators">
+          <!-- Los indicadores se generan automáticamente con JavaScript -->
         </div>
       </div>
     </section>
@@ -276,5 +304,40 @@
       <p>Contacto: WhatsApp +541133714939</p>
     </footer>
   </div>
+
+  <script>
+    // Carousel automático
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.getElementById('productsCarousel');
+      const indicatorsContainer = document.getElementById('carouselIndicators');
+      const cards = carousel.querySelectorAll('.product-card');
+      const cardWidth = 340 + 25; // ancho de card + gap
+      let currentIndex = 0;
+      
+      // Crear indicadores
+      cards.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+      });
+      
+      function goToSlide(index) {
+        currentIndex = index;
+        carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // Actualizar indicadores
+        document.querySelectorAll('.indicator').forEach((ind, i) => {
+          ind.classList.toggle('active', i === currentIndex);
+        });
+      }
+      
+      // Cambio automático cada 3 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        goToSlide(currentIndex);
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
