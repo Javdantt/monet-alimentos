@@ -12,67 +12,90 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f9f6f0 0%, #f5f0e8 50%, #faf8f3 100%);
+      background: 
+        linear-gradient(rgba(249, 246, 240, 0.9), rgba(245, 240, 232, 0.9)),
+        url('https://images.unsplash.com/photo-1629654858857-615c2c8be8a8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1494');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       min-height: 100vh;
       color: #5a5a5a;
       overflow-x: hidden;
     }
 
-    .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+    .container { 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 20px 20px 40px; 
+    }
 
+    /* HEADER COMPACTO */
     header {
       text-align: center;
-      margin-bottom: 60px;
-      background: rgba(255, 248, 245, 0.7);
-      border: 2px solid rgba(230, 200, 180, 0.3);
-      border-radius: 20px;
-      padding: 50px 40px;
-      box-shadow: 0 8px 32px rgba(200, 150, 120, 0.1);
+      margin-bottom: 30px;
+      background: rgba(255, 248, 245, 0.85);
+      border: 2px solid rgba(230, 200, 180, 0.4);
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 20px rgba(200, 150, 120, 0.15);
+      backdrop-filter: blur(10px);
     }
 
     .logo-img-large {
-      max-width: 280px; /* Logo más grande */
+      max-width: 200px; /* Logo un poco más pequeño para header compacto */
       height: auto;
-      margin-bottom: 25px;
-      /* Quitamos la animación flotante */
-      filter: drop-shadow(0 4px 8px rgba(200, 150, 120, 0.2));
+      margin-bottom: 15px;
+      filter: drop-shadow(0 2px 6px rgba(200, 150, 120, 0.3));
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
     .subtitle {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: #8b7355;
-      font-weight: 300;
-      letter-spacing: 2px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin: 0;
     }
 
     .tagline {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #b8956a;
       font-style: italic;
       font-weight: 300;
+      margin: 0;
     }
 
-    .products-section { margin-bottom: 60px; }
+    .products-section { 
+      margin-bottom: 40px; 
+    }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .products-carousel-container {
       position: relative;
       overflow: hidden;
       border-radius: 18px;
-      background: rgba(255, 248, 245, 0.3);
-      padding: 20px 0;
+      background: rgba(255, 248, 245, 0.7);
+      padding: 15px 0;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 165, 116, 0.2);
     }
 
     .products-carousel {
@@ -86,22 +109,23 @@
 
     .product-card {
       flex: 0 0 340px;
-      background: linear-gradient(135deg, rgba(255, 248, 245, 0.9) 0%, rgba(250, 245, 240, 0.95) 100%);
-      border: 2px solid rgba(212, 165, 116, 0.2);
+      background: linear-gradient(135deg, rgba(255, 248, 245, 0.95) 0%, rgba(250, 245, 240, 0.98) 100%);
+      border: 2px solid rgba(212, 165, 116, 0.25);
       border-radius: 18px;
       padding: 20px;
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(200, 150, 120, 0.15);
+      box-shadow: 0 4px 15px rgba(200, 150, 120, 0.2);
       display: flex;
       flex-direction: column;
+      backdrop-filter: blur(5px);
     }
 
     .product-card:hover {
-      transform: translateY(-15px) scale(1.02);
-      border-color: rgba(212, 165, 116, 0.4);
-      box-shadow: 0 15px 40px rgba(200, 150, 120, 0.3);
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(212, 165, 116, 0.5);
+      box-shadow: 0 12px 30px rgba(200, 150, 120, 0.35);
     }
 
     .product-image {
@@ -198,30 +222,57 @@
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 20px;
       border-top: 1px solid rgba(212, 165, 116, 0.2);
       color: #8b7355;
       font-size: 0.9rem;
-      margin-top: 60px;
+      margin-top: 40px;
+      background: rgba(255, 248, 245, 0.7);
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
     }
 
     @media (max-width: 768px) {
-      .section-title { font-size: 2rem; }
+      .container { padding: 15px 15px 30px; }
+      
+      .section-title { font-size: 1.8rem; margin-bottom: 20px; }
+      
       .product-card { flex: 0 0 300px; }
-      header { padding: 30px 20px; }
-      .logo-img-large { max-width: 220px; }
-      .subtitle { font-size: 1.1rem; }
+      
+      header { 
+        padding: 20px 15px; 
+        margin-bottom: 20px;
+      }
+      
+      .logo-img-large { max-width: 160px; }
+      
+      .subtitle { font-size: 1rem; }
+      
+      .tagline { font-size: 0.85rem; }
+      
+      .products-carousel-container {
+        padding: 10px 0;
+      }
+      
+      .products-carousel {
+        padding: 0 15px;
+        gap: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- HEADER COMPACTO -->
     <header>
       <img src="https://i.ibb.co/5WV0XqLr/logo-monet25.png" alt="Monet Alimentos" class="logo-img-large">
-      <p class="subtitle">Alimentos Caseros y Naturales</p>
-      <p class="tagline">Elaborados con amor y tradición</p>
+      <div class="header-text">
+        <p class="subtitle">Alimentos Caseros y Naturales</p>
+        <p class="tagline">Elaborados con amor y tradición</p>
+      </div>
     </header>
 
+    <!-- PRODUCTOS VISIBLES INMEDIATAMENTE -->
     <section class="products-section">
       <h2 class="section-title">Nuestros Productos</h2>
       
@@ -254,7 +305,7 @@
           </div>
 
           <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1535720539519-175b763b8d53?w=400&h=300&fit=crop" alt="Yogurt" class="product-image">
+            <img src="https://img-global.cpcdn.com/recipes/c13937e20ba5e3dc/1280x1280sq80/photo.webp" alt="Yogurt" class="product-image">
             <h3 class="product-name">Yogurt Griego Cremoso</h3>
             <p class="product-description">Cremoso, proteínico y lleno de probióticos</p>
             <ul class="benefits">
