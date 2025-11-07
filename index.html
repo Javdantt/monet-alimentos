@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monet Alimentos - Productos Caseros y Naturales</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f9f6f0 0%, #f5f0e8 50%, #faf8f3 100%);
+      min-height: 100vh;
+      color: #5a5a5a;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      background: rgba(255, 248, 245, 0.7);
+      border: 2px solid rgba(230, 200, 180, 0.3);
+      border-radius: 20px;
+      padding: 50px 40px;
+      box-shadow: 0 8px 32px rgba(200, 150, 120, 0.1);
+    }
+
+    .logo-img-large {
+      max-width: 220px;
+      height: auto;
+      margin-bottom: 25px;
+      animation: floatLogo 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(200, 150, 120, 0.2));
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #8b7355;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #b8956a;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .products-section { margin-bottom: 60px; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 50px;
+      background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .products-carousel {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scroll-behavior: smooth;
+    }
+
+    .products-carousel::-webkit-scrollbar { height: 8px; }
+    .products-carousel::-webkit-scrollbar-track { background: rgba(212, 165, 116, 0.1); border-radius: 10px; }
+    .products-carousel::-webkit-scrollbar-thumb { background: rgba(212, 165, 116, 0.4); border-radius: 10px; }
+    .products-carousel::-webkit-scrollbar-thumb:hover { background: rgba(212, 165, 116, 0.6); }
+
+    .product-card {
+      flex: 0 0 340px;
+      background: linear-gradient(135deg, rgba(255, 248, 245, 0.9) 0%, rgba(250, 245, 240, 0.95) 100%);
+      border: 2px solid rgba(212, 165, 116, 0.2);
+      border-radius: 18px;
+      padding: 20px;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(200, 150, 120, 0.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: rgba(212, 165, 116, 0.4);
+      box-shadow: 0 15px 40px rgba(200, 150, 120, 0.3);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+      border: 1px solid rgba(212, 165, 116, 0.2);
+    }
+
+    .product-card:hover .product-image { transform: scale(1.08); }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #8b6f47;
+    }
+
+    .product-description {
+      font-size: 0.9rem;
+      color: #8b7355;
+      margin-bottom: 15px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .benefits { list-style: none; margin-bottom: 15px; font-size: 0.85rem; }
+
+    .benefits li {
+      color: #8b7355;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      position: relative;
+    }
+
+    .benefits li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #c9956d;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #c9956d 0%, #b8956a 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(201, 149, 109, 0.3);
+      margin-top: auto;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(201, 149, 109, 0.5);
+      background: linear-gradient(135deg, #b8956a 0%, #a78560 100%);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(212, 165, 116, 0.2);
+      color: #8b7355;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2rem; }
+      .product-card { flex: 0 0 300px; }
+      header { padding: 30px 20px; }
+      .logo-img-large { max-width: 180px; }
+      .subtitle { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://i.ibb.co/5WV0XqLr/logo-monet25.png" alt="Monet Alimentos" class="logo-img-large">
+      <p class="subtitle">Alimentos Caseros y Naturales</p>
+      <p class="tagline">Elaborados con amor y tradición</p>
+    </header>
+
+    <section class="products-section">
+      <h2 class="section-title">Nuestros Productos</h2>
+      
+      <div class="products-carousel">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291840?w=400&h=300&fit=crop" alt="Kefir" class="product-image">
+          <h3 class="product-name">Kefir 100% Natural</h3>
+          <p class="product-description">Bebida probiótica elaborada con técnicas tradicionales</p>
+          <ul class="benefits">
+            <li>Fermentación natural controlada</li>
+            <li>Sin aditivos ni conservantes</li>
+            <li>Alto en probióticos vivos</li>
+            <li>100% elaboración casera</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Kefir%20100%25%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop" alt="Mayonesa" class="product-image">
+          <h3 class="product-name">Mayonesa Natural</h3>
+          <p class="product-description">Receta casera sin conservantes artificiales</p>
+          <ul class="benefits">
+            <li>Ingredientes 100% naturales</li>
+            <li>Sin conservantes químicos</li>
+            <li>Sabor auténtico y casero</li>
+            <li>Elaboración artesanal</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Mayonesa%20Natural" class="whatsapp-button" target="_blank">Ordenar</a>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1535720539519-175b763b8d53?w=400&h=300&fit=crop" alt="Yogurt" class="product-image">
+          <h3 class="product-name">Yogurt Griego Cremoso</h3>
+          <p class="product-description">Cremoso, proteínico y lleno de probióticos</p>
+          <ul class="benefits">
+            <li>Textura cremosa y suave</li>
+            <li>Alto contenido de proteína</li>
+            <li>Probióticos vivos activos</li>
+            <li>Sabor natural y delicioso</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Yogurt%20Griego" class="whatsapp-button" target="_blank">Ordenar</a>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Lemon Pie" class="product-image">
+          <h3 class="product-name">Lemon Pie Casero</h3>
+          <p class="product-description">Postre tradicional con receta premium</p>
+          <ul class="benefits">
+            <li>Receta clásica tradicional</li>
+            <li>Ingredientes frescos seleccionados</li>
+            <li>Sabor intenso a limón natural</li>
+            <li>Elaboración 100% casera</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Lemon%20Pie" class="whatsapp-button" target="_blank">Ordenar</a>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Banana Split" class="product-image">
+          <h3 class="product-name">Banana Split Premium</h3>
+          <p class="product-description">Postre refrescante con frutas frescas</p>
+          <ul class="benefits">
+            <li>Frutas frescas seleccionadas diariamente</li>
+            <li>Crema 100% natural y deliciosa</li>
+            <li>Sin conservantes artificiales</li>
+            <li>Presentación elegante y apetitosa</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Banana%20Split%20Premium" class="whatsapp-button" target="_blank">Ordenar</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Monet Alimentos. Todos los derechos reservados.</p>
+      <p>Contacto: WhatsApp +541133714939</p>
+    </footer>
+  </div>
+</body>
+</html>
