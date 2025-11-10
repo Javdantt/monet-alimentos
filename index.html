@@ -135,52 +135,6 @@
       font-size: 1rem;
     }
 
-    /* SECCIÓN DE BENEFICIOS PRINCIPALES */
-    .benefits-section {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .benefit-card {
-      flex: 1;
-      min-width: 250px;
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px var(--shadow);
-      border: 1px solid rgba(212, 165, 116, 0.2);
-      transition: var(--transition);
-      backdrop-filter: blur(5px);
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px var(--shadow-hover);
-    }
-
-    .benefit-icon {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    .benefit-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-
-    .benefit-description {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.5;
-    }
-
     /* SECCIÓN DE PRODUCTOS MEJORADA */
     .products-section { 
       margin-bottom: 50px; 
@@ -212,28 +166,14 @@
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
-    .products-carousel-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      background: rgba(255, 248, 245, 0.7);
-      padding: 20px 0;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212, 165, 116, 0.2);
-      box-shadow: 0 8px 30px var(--shadow);
-    }
-
-    .products-carousel {
-      display: flex;
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 30px;
-      transition: transform 0.8s ease-in-out;
-      padding: 0 20px;
+      margin-bottom: 40px;
     }
-
-    .products-carousel::-webkit-scrollbar { display: none; }
 
     .product-card {
-      flex: 0 0 360px;
       background: linear-gradient(135deg, var(--card-bg) 0%, rgba(250, 245, 240, 0.98) 100%);
       border: 2px solid rgba(212, 165, 116, 0.25);
       border-radius: 20px;
@@ -339,35 +279,6 @@
       font-size: 1.1rem;
     }
 
-    .price-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .original-price {
-      font-size: 1rem;
-      text-decoration: line-through;
-      color: var(--text-light);
-      margin-right: 10px;
-    }
-
-    .discount-badge {
-      background: var(--success);
-      color: white;
-      padding: 3px 8px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
     .whatsapp-button {
       display: flex;
       align-items: center;
@@ -399,117 +310,161 @@
       font-size: 1.2rem;
     }
 
-    /* Indicadores del carousel mejorados */
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 25px;
-    }
-
-    .carousel-btn {
-      background: var(--card-bg);
-      border: 2px solid rgba(212, 165, 116, 0.3);
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-      color: var(--primary);
-      font-size: 1.2rem;
-      box-shadow: 0 4px 10px var(--shadow);
-    }
-
-    .carousel-btn:hover {
-      background: var(--accent-light);
-      transform: scale(1.1);
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .indicator {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: rgba(212, 165, 116, 0.3);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .indicator.active {
-      background: var(--accent);
-      transform: scale(1.2);
-    }
-
-    /* SECCIÓN DE TESTIMONIOS */
-    .testimonials-section {
+    /* SECCIÓN DE INGREDIENTES */
+    .ingredients-section {
       margin-bottom: 50px;
     }
 
-    .testimonials-container {
-      display: flex;
+    .ingredients-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
-      overflow-x: auto;
-      padding: 20px 10px;
-      scrollbar-width: none;
     }
 
-    .testimonials-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .testimonial-card {
-      flex: 0 0 320px;
+    .ingredient-card {
       background: var(--card-bg);
       border-radius: 15px;
       padding: 25px;
       box-shadow: 0 6px 20px var(--shadow);
       border: 1px solid rgba(212, 165, 116, 0.2);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .testimonial-text {
-      font-style: italic;
+    .ingredient-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px var(--shadow-hover);
+    }
+
+    .ingredient-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .ingredient-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .ingredient-description {
+      font-size: 0.9rem;
       color: var(--text-light);
-      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* SECCIÓN DE ELABORACIÓN */
+    .elaboration-section {
+      margin-bottom: 50px;
+    }
+
+    .elaboration-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 15px var(--shadow);
+      border: 1px solid rgba(212, 165, 116, 0.2);
+      transition: var(--transition);
+    }
+
+    .step:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 20px var(--shadow-hover);
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .step-description {
+      font-size: 0.95rem;
+      color: var(--text-light);
       line-height: 1.6;
     }
 
-    .testimonial-author {
+    /* SECCIÓN PREMIUM */
+    .premium-section {
+      margin-bottom: 50px;
+    }
+
+    .premium-container {
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(250, 245, 240, 0.98) 100%);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 30px var(--shadow);
+      border: 1px solid rgba(212, 165, 116, 0.2);
+      text-align: center;
+    }
+
+    .premium-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .premium-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .premium-feature {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 15px;
     }
 
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent-light);
+    .premium-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
     }
 
-    .author-info h4 {
-      font-weight: 600;
+    .premium-feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
       color: var(--primary);
-      margin-bottom: 5px;
     }
 
-    .author-info p {
-      font-size: 0.85rem;
+    .premium-feature-description {
+      font-size: 0.9rem;
       color: var(--text-light);
-    }
-
-    .stars {
-      color: #ffc107;
-      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     /* SECCIÓN DE GARANTÍA */
@@ -553,6 +508,34 @@
     .guarantee-badge i {
       color: var(--success);
       font-size: 1.5rem;
+    }
+
+    /* BOTÓN FLOTANTE DE WHATSAPP */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+    }
+
+    .floating-whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      font-size: 1.8rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .floating-whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
     }
 
     /* FOOTER MEJORADO */
@@ -622,12 +605,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 1200px) {
-      .benefits-section {
-        justify-content: center;
-      }
-      
-      .benefit-card {
-        flex: 0 0 calc(50% - 20px);
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
     }
 
@@ -635,8 +614,6 @@
       .container { padding: 15px 15px 30px; }
       
       .section-title { font-size: 2rem; margin-bottom: 30px; }
-      
-      .product-card { flex: 0 0 320px; }
       
       header { 
         padding: 20px 15px; 
@@ -649,17 +626,17 @@
       
       .tagline { font-size: 0.9rem; }
       
-      .products-carousel-container {
-        padding: 15px 0;
+      .step {
+        flex-direction: column;
+        text-align: center;
       }
       
-      .products-carousel {
-        padding: 0 15px;
-        gap: 25px;
+      .step-number {
+        align-self: center;
       }
       
-      .benefit-card {
-        flex: 0 0 100%;
+      .premium-container {
+        padding: 30px 20px;
       }
       
       .guarantee-section {
@@ -682,8 +659,12 @@
         align-items: center;
       }
       
-      .product-card {
-        flex: 0 0 280px;
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .ingredients-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -713,178 +694,232 @@
       </div>
     </header>
 
-    <!-- SECCIÓN DE BENEFICIOS PRINCIPALES -->
-    <section class="benefits-section">
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-seedling"></i>
-        </div>
-        <h3 class="benefit-title">Ingredientes Naturales</h3>
-        <p class="benefit-description">Seleccionamos cuidadosamente cada ingrediente para garantizar la máxima calidad y frescura.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-home"></i>
-        </div>
-        <h3 class="benefit-title">Elaboración Casera</h3>
-        <p class="benefit-description">Preparados con recetas tradicionales y el cuidado que solo un proceso artesanal puede ofrecer.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-award"></i>
-        </div>
-        <h3 class="benefit-title">Calidad Premium</h3>
-        <p class="benefit-description">Cada producto pasa por rigurosos controles para asegurar su excelencia y sabor incomparable.</p>
-      </div>
-    </section>
-
     <!-- SECCIÓN DE PRODUCTOS MEJORADA -->
     <section class="products-section">
       <h2 class="section-title">Nuestros Productos Destacados</h2>
       
-      <div class="products-carousel-container">
-        <div class="products-carousel" id="productsCarousel">
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="https://i0.wp.com/goota.cl/wp-content/uploads/2021/09/8-1.png?w=1024&ssl=1" alt="Kefir" class="product-image">
-              <div class="product-badge">Más Vendido</div>
-            </div>
-            <h3 class="product-name">Kefir 100% Natural</h3>
-            <p class="product-description">Bebida probiótica fermentada naturalmente que fortalece tu sistema digestivo y mejora tu salud intestinal.</p>
-            <ul class="benefits">
-              <li>Fermentación natural controlada</li>
-              <li>Sin aditivos ni conservantes</li>
-              <li>Alto en probióticos vivos</li>
-              <li>100% elaboración casera</li>
-            </ul>
-            <div class="price-container">
-              <div>
-                <span class="original-price">$850</span>
-                <span class="price">$720</span>
-              </div>
-              <div class="discount-badge">15% OFF</div>
-            </div>
-            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Kefir%20100%25%20Natural" class="whatsapp-button" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-              Ordenar por WhatsApp
-            </a>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://i0.wp.com/goota.cl/wp-content/uploads/2021/09/8-1.png?w=1024&ssl=1" alt="Kefir" class="product-image">
+            <div class="product-badge">Más Vendido</div>
           </div>
+          <h3 class="product-name">Kefir 100% Natural</h3>
+          <p class="product-description">Bebida probiótica fermentada naturalmente que fortalece tu sistema digestivo y mejora tu salud intestinal.</p>
+          <ul class="benefits">
+            <li>Fermentación natural controlada</li>
+            <li>Sin aditivos ni conservantes</li>
+            <li>Alto en probióticos vivos</li>
+            <li>100% elaboración casera</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Kefir%20100%25%20Natural" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
 
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="https://www.paulinacocina.net/wp-content/uploads/2020/03/mayonesa-casera.jpg.webp" alt="Mayonesa" class="product-image">
-              <div class="product-badge">Nuevo</div>
-            </div>
-            <h3 class="product-name">Mayonesa Natural</h3>
-            <p class="product-description">Cremosa mayonesa casera con el auténtico sabor de siempre, sin conservantes artificiales.</p>
-            <ul class="benefits">
-              <li>Ingredientes 100% naturales</li>
-              <li>Sin conservantes químicos</li>
-              <li>Sabor auténtico y casero</li>
-              <li>Elaboración artesanal</li>
-            </ul>
-            <div class="price-container">
-              <div>
-                <span class="price">$580</span>
-              </div>
-            </div>
-            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Mayonesa%20Natural" class="whatsapp-button" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-              Ordenar por WhatsApp
-            </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://www.paulinacocina.net/wp-content/uploads/2020/03/mayonesa-casera.jpg.webp" alt="Mayonesa" class="product-image">
+            <div class="product-badge">Nuevo</div>
           </div>
+          <h3 class="product-name">Mayonesa Casera</h3>
+          <p class="product-description">Cremosa mayonesa casera con el auténtico sabor de siempre, sin conservantes artificiales.</p>
+          <ul class="benefits">
+            <li>Ingredientes 100% naturales</li>
+            <li>Sin conservantes químicos</li>
+            <li>Sabor auténtico y casero</li>
+            <li>Elaboración artesanal</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Mayonesa%20Casera" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
 
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="https://img-global.cpcdn.com/recipes/c13937e20ba5e3dc/1280x1280sq80/photo.webp" alt="Yogurt" class="product-image">
-              <div class="product-badge">Sin Lactosa</div>
-            </div>
-            <h3 class="product-name">Yogurt Griego Cremoso</h3>
-            <p class="product-description">Delicioso yogurt griego con textura cremosa, alto en proteínas y probióticos naturales.</p>
-            <ul class="benefits">
-              <li>Textura cremosa y suave</li>
-              <li>Alto contenido de proteína</li>
-              <li>Probióticos vivos activos</li>
-              <li>Sabor natural y delicioso</li>
-            </ul>
-            <div class="price-container">
-              <div>
-                <span class="price">$650</span>
-              </div>
-            </div>
-            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Yogurt%20Griego" class="whatsapp-button" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-              Ordenar por WhatsApp
-            </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://img-global.cpcdn.com/recipes/c13937e20ba5e3dc/1280x1280sq80/photo.webp" alt="Yogurt" class="product-image">
+            <div class="product-badge">Casero</div>
           </div>
+          <h3 class="product-name">Yogurt Griego Cremoso</h3>
+          <p class="product-description">Delicioso yogurt griego con textura cremosa, alto en proteínas y probióticos naturales.</p>
+          <ul class="benefits">
+            <li>Textura cremosa y suave</li>
+            <li>Alto contenido de proteína</li>
+            <li>Probióticos vivos activos</li>
+            <li>Sabor natural y delicioso</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Yogurt%20Griego" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
 
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="https://i0.wp.com/marubotana.tv/wp-content/uploads/2014/07/mini_lemonpie.jpg?fit=736%2C736&ssl=1" alt="Lemon Pie" class="product-image">
-              <div class="product-badge">Postre del Mes</div>
-            </div>
-            <h3 class="product-name">Lemon Pie Casero</h3>
-            <p class="product-description">Clásico postre con base crujiente y relleno cremoso de limón, elaborado con frutas frescas.</p>
-            <ul class="benefits">
-              <li>Receta clásica tradicional</li>
-              <li>Ingredientes frescos seleccionados</li>
-              <li>Sabor intenso a limón natural</li>
-              <li>Elaboración 100% casera</li>
-            </ul>
-            <div class="price-container">
-              <div>
-                <span class="original-price">$1200</span>
-                <span class="price">$990</span>
-              </div>
-              <div class="discount-badge">18% OFF</div>
-            </div>
-            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Lemon%20Pie" class="whatsapp-button" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-              Ordenar por WhatsApp
-            </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://i0.wp.com/marubotana.tv/wp-content/uploads/2014/07/mini_lemonpie.jpg?fit=736%2C736&ssl=1" alt="Lemon Pie" class="product-image">
+            <div class="product-badge">Postre del Mes</div>
           </div>
+          <h3 class="product-name">Lemon Pie Casero</h3>
+          <p class="product-description">Clásico postre con base crujiente y relleno cremoso de limón, elaborado con frutas frescas.</p>
+          <ul class="benefits">
+            <li>Receta clásica tradicional</li>
+            <li>Ingredientes frescos seleccionados</li>
+            <li>Sabor intenso a limón natural</li>
+            <li>Elaboración 100% casera</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Lemon%20Pie" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
 
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-banana-split.jpg.webp" alt="Banana Split" class="product-image">
-              <div class="product-badge">Edición Limitada</div>
-            </div>
-            <h3 class="product-name">Banana Split Premium</h3>
-            <p class="product-description">Exquisito postre con frutas frescas, crema natural y nuestro toque especial de la casa.</p>
-            <ul class="benefits">
-              <li>Frutas frescas seleccionadas diariamente</li>
-              <li>Crema 100% natural y deliciosa</li>
-              <li>Sin conservantes artificiales</li>
-              <li>Presentación elegante y apetitosa</li>
-            </ul>
-            <div class="price-container">
-              <div>
-                <span class="price">$850</span>
-              </div>
-            </div>
-            <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Banana%20Split%20Premium" class="whatsapp-button" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-              Ordenar por WhatsApp
-            </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://comidaschilenas.com/wp-content/uploads/2020/01/Receta-de-banana-split.jpg.webp" alt="Banana Split" class="product-image">
+            <div class="product-badge">Edición Limitada</div>
+          </div>
+          <h3 class="product-name">Banana Split Premium</h3>
+          <p class="product-description">Exquisito postre con frutas frescas, crema natural y nuestro toque especial de la casa.</p>
+          <ul class="benefits">
+            <li>Frutas frescas seleccionadas diariamente</li>
+            <li>Crema 100% natural y deliciosa</li>
+            <li>Sin conservantes artificiales</li>
+            <li>Presentación elegante y apetitosa</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Banana%20Split%20Premium" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
+
+        <!-- NUEVOS PRODUCTOS AGREGADOS -->
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://laopinionaustral.com.ar/media/uploads/2025/04/receta-chipa-casero-662x728.webp" alt="Chipá Casera" class="product-image">
+            <div class="product-badge">Sin TACC</div>
+          </div>
+          <h3 class="product-name">Chipá Casera Congelada</h3>
+          <p class="product-description">Deliciosos chipás listos para hornear en solo 10 minutos. Ideales para un snack rápido y saludable.</p>
+          <ul class="benefits">
+            <li>Sin gluten y sin TACC</li>
+            <li>Listas en solo 10 minutos</li>
+            <li>Textura esponjosa por dentro</li>
+            <li>Crocantes por fuera</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Chipá%20Casera%20Congelada" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="https://i.pinimg.com/1200x/78/cf/3e/78cf3e9a76d51e737f9ec1c099a749fe.jpg" alt="Pre-pizzas" class="product-image">
+            <div class="product-badge">Listas para horno</div>
+          </div>
+          <h3 class="product-name">Pre-pizzas Caseras</h3>
+          <p class="product-description">Masa fresca lista para horno con receta tradicional. Agregale tus ingredientes favoritos y disfruta.</p>
+          <ul class="benefits">
+            <li>Masa fresca y riquísima</li>
+            <li>Receta tradicional casera</li>
+            <li>Listas para el horno</li>
+            <li>Personaliza con tus ingredientes</li>
+          </ul>
+          <a href="https://wa.me/541133714939?text=Hola,%20me%20gustaría%20ordenar%20Pre-pizzas%20Caseras" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Ordenar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE INGREDIENTES -->
+    <section class="ingredients-section">
+      <h2 class="section-title">Ingredientes de Calidad</h2>
+      
+      <div class="ingredients-container">
+        <div class="ingredient-card">
+          <div class="ingredient-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h3 class="ingredient-title">Ingredientes Naturales</h3>
+          <p class="ingredient-description">Seleccionamos cuidadosamente cada ingrediente para garantizar la máxima calidad y frescura en todos nuestros productos.</p>
+        </div>
+        
+        <div class="ingredient-card">
+          <div class="ingredient-icon">
+            <i class="fas fa-wheat-alt"></i>
+          </div>
+          <h3 class="ingredient-title">Sin Conservantes</h3>
+          <p class="ingredient-description">Nuestros productos están libres de conservantes artificiales, colorantes y aditivos químicos.</p>
+        </div>
+        
+        <div class="ingredient-card">
+          <div class="ingredient-icon">
+            <i class="fas fa-apple-alt"></i>
+          </div>
+          <h3 class="ingredient-title">Frutas Frescas</h3>
+          <p class="ingredient-description">Utilizamos frutas frescas de temporada para garantizar el mejor sabor y calidad en cada preparación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE ELABORACIÓN -->
+    <section class="elaboration-section">
+      <h2 class="section-title">Nuestra Elaboración</h2>
+      
+      <div class="elaboration-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">Selección de Ingredientes</h3>
+            <p class="step-description">Cada ingrediente es cuidadosamente seleccionado para garantizar la máxima calidad y frescura en nuestros productos.</p>
           </div>
         </div>
         
-        <div class="carousel-controls">
-          <div class="carousel-btn" id="prevBtn">
-            <i class="fas fa-chevron-left"></i>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Proceso Artesanal</h3>
+            <p class="step-description">Utilizamos técnicas tradicionales y procesos artesanales que respetan los tiempos naturales de fermentación y elaboración.</p>
           </div>
-          <div class="carousel-indicators" id="carouselIndicators">
-            <!-- Los indicadores se generan automáticamente con JavaScript -->
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">Control de Calidad</h3>
+            <p class="step-description">Cada producto pasa por rigurosos controles de calidad para asegurar su excelencia y sabor incomparable.</p>
           </div>
-          <div class="carousel-btn" id="nextBtn">
-            <i class="fas fa-chevron-right"></i>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="step-title">Envasado y Distribución</h3>
+            <p class="step-description">Empacamos nuestros productos de manera cuidadosa para mantener su frescura y los distribuimos directamente a tu hogar.</p>
           </div>
         </div>
       </div>
     </section>
 
-
-    <!-- SECCIÓN DE GARANTÍA -->
-    <section class="guarantee-section">
-      <h2 class="guarantee-title">Garantía de Satisfacción</h2>
-      <p class="guarantee-text">En Monet Alimentos estamos tan seguros de la calidad de nuestros productos que ofrecemos una garantía de satisfacción del 100%.
+    <!-- SECCIÓN PREMIUM -->
+    <section class="premium-section">
+      <h2 class="section-title">Calidad Premium</h2>
+      
+      <div class="premium-container">
+        <h3 class="premium-title">¿Por qué elegir nuestros productos?</h3>
+        <p>En Monet Alimentos nos enorgullecemos de ofrecer productos de la más alta calidad, elaborados con ingredientes naturales y procesos artesanales que respetan las tradiciones culinarias.</p>
+        
+        <div class="premium-features">
+          <div class="premium-feature">
+            <div class="premium-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h4 class="premium-feature-title">Hecho con Amor</h4>
+            <p class="premium-feature-description">Cada producto es elaborado con dedicación y pasión por lo que hacemos.</p>
+          </div>
+          
+          <
