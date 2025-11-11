@@ -479,6 +479,18 @@
       box-shadow: 0 8px 30px var(--shadow);
       border: 1px solid rgba(212, 165, 116, 0.2);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), var(--primary-light));
     }
 
     .order-title {
@@ -486,6 +498,15 @@
       font-size: 2rem;
       color: var(--primary);
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .order-title i {
+      color: var(--accent);
+      font-size: 2.2rem;
     }
 
     .order-info {
@@ -918,18 +939,4 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h3 class="step-title">Control de Calidad</h3>
-            <p class="step-description">Cada producto pasa por rigurosos controles de calidad para asegurar su excelencia y sabor incomparable.</p>
-          </div>
-        </div>
-        
-        <div class="step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3 class="step-title">Envasado y Distribución</h3>
-            <p class="step-description">Empacamos nuestros productos de manera cuidadosa para mantener su frescura y los distribuimos directamente a tu hogar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-   
+           
